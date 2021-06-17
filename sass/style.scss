@@ -1,0 +1,582 @@
+@import './variables';
+@import './reset.scss';
+@import '../breakpoints/breakpoints.scss';
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+
+/* Colors */
+:root{
+    /* Primary */
+ --Softred: hsl(7, 99%, 70%);
+ --Yellow: hsl(51, 100%, 49%);
+ --Darkdesaturatedcyan: hsl(167, 40%, 24%);
+ --Darkblue: hsl(198, 62%, 26%);
+ --Darkmoderatecyan: hsl(168, 34%, 41%);
+
+ /* Secondary */
+ --Verydarkdesaturatedblue: hsl(212, 27%, 19%);
+ --Verydarkgrayishblue: hsl(213, 9%, 39%);
+ --Darkgrayishblue: hsl(232, 10%, 55%);
+ --Grayishblue: hsl(210, 4%, 67%);
+ --White: hsl(0, 0%, 100%);
+}
+
+
+body{
+    font-size: 18px;
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Fraunces', serif;
+}
+
+.triangle{
+    position: absolute;  
+    right: 6.2%;
+    top: 65px;
+    width: 0;
+	height: 0;	
+	border-right: 45px solid transparent;
+	border-bottom: 50px solid #fff;
+    transform:rotate(270deg);
+    display: none;  
+
+    @include media("<375px") {  //For Desktop 
+        right: 5%;
+    }
+
+    @include media(">375px","<768px") {  //For Desktop 
+        right: 6.9%;
+    }
+
+    @include media(">=768px","<800px") {  //For Desktop 
+        right: 9.1%;
+    }
+}
+
+
+
+//Showcase
+
+.showcase{
+    background: url(../images/mobile/image-header.jpg) no-repeat center center/cover;       
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    // Navbar
+    
+ navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    top: 0;
+    position: absolute;
+
+  
+
+    img{
+        padding: 0.5rem 0;
+        
+
+        @include media(">tablet") {  //For Desktop 
+            width: auto;
+        }
+
+    }
+
+    // Menu
+    .menu{
+
+        @include media("<=tablet") {  //For Desktop 
+            position: absolute;
+            background-color: var(--White);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 88%;
+            margin: 0 auto;
+            top: 110px;
+            display: none;
+            text-align: center;
+            
+    
+            
+            
+            li{
+                margin: 2.3rem 0;
+    
+                a{
+                    color: var(--Grayishblue);
+                    font-family: 'Barlow', sans-serif;
+                    
+    
+                    &:hover{
+                        text-transform: uppercase;
+                        background-color: var(--Yellow);
+                        color: black;
+                        padding: 1rem 2rem;
+                        border-radius: 30px;  
+                        outline: none;                   
+                    }
+                }
+            }
+        }
+        
+
+        @include media(">tablet") {  //For Desktop 
+            display: flex;    
+            align-items: center;
+            justify-content: center;              
+            display: true;
+            position: static;
+
+            li{
+                margin:0 2rem;
+    
+                a{
+                    color: rgb(240, 236, 236);
+                    font-family: 'Barlow', sans-serif;
+                    
+    
+                    &:hover{
+                        text-transform: uppercase;
+                        background-color: hsl(199, 100%, 73%);
+                        // color: black;
+                        padding: 1rem 2rem;
+                        border-radius: 30px;  
+                        outline: none;                   
+                    }
+                }
+            }
+        }
+        
+    }
+    .show-menu{        
+        display: block;
+        transition: 0.5s ease-in ;
+    }
+    
+
+    /* Hamburger menu */
+
+    .hamburger{
+        display: inline-block;
+        cursor: pointer;           
+      
+      .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+        transition: 0.4s;
+
+        &:hover{
+            background-color: var(--Grayishblue);
+        }   
+
+        
+      }
+
+      @include media(">tablet") {  //For Desktop 
+        display: none;
+    }
+    }
+      
+      .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+      }
+      
+      .change .bar2 {opacity: 0;}
+      
+      .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+      }
+      
+}
+
+    // Navbar end
+
+    h1{
+        color: $color-white;
+        letter-spacing: 3px;
+        font-size: $i1*1.4;
+        text-align: center;
+        margin-bottom: 3rem;        
+    }
+
+    .arrow{
+        width: 30px;
+        height: 110px;
+    }
+
+    @include media(">tablet") {  //For Desktop 
+        background: url(../images/desktop/image-header.jpg)  no-repeat center center/cover;
+        height: 800px;
+
+        h1{
+            font-size: 3.5rem;
+            letter-spacing: 0.8rem;            
+            margin : 1rem 0 3rem;
+        }
+
+        .arrow{
+            width: 50px;
+            height: 150px;
+            // margin-top: 1rem;
+            margin-bottom: 6rem;
+        }
+    }
+
+    
+}
+
+// Showcase ends
+
+.container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+
+      @include media(">tablet") {  //For Desktop 
+       grid-template-columns: repeat(2,1fr);
+
+       .item1{
+           grid-column: 2/3;
+           grid-row: 1/2;
+       }
+
+       .item2{
+           grid-column: 1/2;
+       }
+    }
+   
+    
+    
+    //  egg image
+    img{
+        width: 100%;
+    }
+       
+    // Intro
+
+    .intro{       
+        padding: 3rem 2rem;
+
+        .text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h1{
+                font-size: 2rem;
+                text-align: center;
+                font-weight: 800;
+            }
+    
+            p{
+                margin: 2rem 0 3rem;
+                color: var(--Darkgrayishblue);
+                text-align: center;
+                font-family: 'Barlow', sans-serif;
+            }
+    
+            button{
+                font-weight: 800;
+                outline: none;
+                text-transform: uppercase;     
+                cursor: pointer;       
+            }
+            .btn1{
+                background: linear-gradient(
+                    to bottom, 
+                    #fff 0%, 
+                    #fff 60%, 
+                    rgb(236, 234, 115) 60%, 
+                    rgb(236, 234, 115)100%
+                  );
+                  
+            }
+    
+            .btn2{
+                background: linear-gradient(
+                    to bottom, 
+                    #fff 0%, 
+                    #fff 60%, 
+                    rgb(247, 212, 212) 60%, 
+                    rgb(247, 212, 212) 100%
+                  );
+            }
+
+        }
+       
+
+        
+
+        @include media(">tablet") {  //For Desktop 
+
+            display: grid;
+            place-items: center;
+
+            .text{
+               display: grid;
+               place-items: left;
+               text-align: left;
+               padding: 0 6.5rem;
+
+               h1{
+                   font-size: 2.5rem;
+                   text-align: left;
+               }
+
+               p{
+                   text-align: left;
+                   line-height: 1.5;
+               }
+
+                button{
+                    width: 25%;
+                }
+    
+                .btn1{
+                    background: linear-gradient(
+                        to bottom, 
+                        #fff 0%, 
+                        #fff 60%, 
+                         var(--Yellow) 60%, 
+                         var(--Yellow)100%
+                         
+                      );
+                    
+                }
+        
+                .btn2{
+                    background: linear-gradient(
+                        to bottom, 
+                        #fff 0%, 
+                        #fff 60%, 
+                        var(--Softred) 60%, 
+                         var(--Softred)100%
+                      );
+                }
+
+            }
+
+           
+          }
+    }
+
+    // Topics
+
+    .topics-text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:flex-end;
+        text-align: center;
+        padding: 3rem 2rem;
+        width: 100%;
+        height: 550px;
+        
+
+        h1{
+            color: var(--Darkdesaturatedcyan);
+            // margin: 1rem 0;
+        }
+
+        p{
+            text-align: center;
+            font-family: 'Barlow', sans-serif;
+            font-size: 15px;
+            color: var(--Darkdesaturatedcyan);
+            margin-top: 1.5rem;
+            line-height: 1.5;
+        }
+
+          @include media(">tablet") {  //For Desktop 
+            padding: 5rem;
+          }
+        
+    }
+
+    .topic1{
+        background: url(../images/mobile/image-graphic-design.jpg) no-repeat top center/cover;   
+
+        @include media(">tablet") {  //For Desktop 
+            background: url(../images/desktop/image-graphic-design.jpg) no-repeat top center/cover;
+        }
+    }
+
+    .topic2{
+        background: url(../images/mobile/image-photography.jpg) no-repeat top center/cover;  
+        
+        @include media(">tablet") {  //For Desktop 
+            background: url(../images/desktop/image-photography.jpg) no-repeat top center/cover;
+        }
+    }
+
+    
+
+    
+  
+
+}
+
+// Testimonials
+
+.testimonials{
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h4{
+        color: var(--Darkgrayishblue);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+
+        @include media(">tablet") {  //For Desktop   
+            margin: 4rem 0 -3rem;
+         }
+        
+    }
+
+    .testimonial-container{
+
+        .testimonial{  
+
+            img{
+                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                margin: 4rem 0 1rem;
+            }
+        
+            p{
+                text-align: center;
+                font-family: 'Barlow', sans-serif;
+                font-size: 17px;
+                color: var(--Darkdesaturatedcyan);
+                margin-top: 1.5rem;
+                line-height: 1.5;
+                margin-bottom: 2rem;
+            }
+        
+            .profile{
+                h3{
+                    margin-bottom: 0.8rem;  
+                    font-weight: 800;              
+                }
+        
+                label{
+                    color: var(--Darkgrayishblue);
+                    font-family: 'Barlow', sans-serif;
+                    font-size: 15px;
+                }
+            }
+        
+           
+          } 
+
+        @include media(">tablet") {  //For Desktop   
+            display: grid;              
+            grid-template-columns: repeat(3,1fr);
+            gap: 3rem;
+            padding: 4rem;
+         }
+    }
+
+    
+}
+
+.grid-pics{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 1rem 0 0;        
+
+    @include media(">tablet") {  //For Desktop                 
+       grid-template-columns: repeat(4,1fr);
+    }
+}
+
+// Footer
+
+.footer{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;        
+    background-color: rgb(146, 238, 226) ;
+    height: 350px;
+    position: relative;
+
+    h1{
+        color: var(--Darkmoderatecyan);
+        font-weight: 800;
+        font-size: 35px;   
+        margin: 1rem 0;         
+    }
+
+    .footer-links{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 2rem 0 1rem;
+
+       
+
+        a{
+            color: var(--Darkmoderatecyan);
+            font-family: 'Barlow', sans-serif;           
+
+            &:hover{                
+                color: hsl(0, 0%, 100%);
+            }
+        }           
+
+        @include media(">tablet") {  //For Desktop 
+            justify-content: center;       
+            
+            li{
+                @include media(">tablet") {  //For Desktop                 
+                    margin: 0 2.2rem;
+                }
+                
+            }
+        }
+       
+    }
+
+    .social-links{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin: 4rem 0 0;
+
+        li{
+            margin: 0 15px;
+        }
+
+        img:hover{    
+            filter: invert(1) brightness(80);
+
+        }
+    }
+     .attribution{
+         position: absolute;
+        bottom: 0;
+        color: rgb(80, 175, 162) ;
+
+     }
+    
+
+    
+}
