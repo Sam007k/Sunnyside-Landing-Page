@@ -207,12 +207,12 @@ body{
         letter-spacing: 3px;
         font-size: $i1*1.4;
         text-align: center;
-        margin-bottom: 3rem;        
+        margin-bottom:1rem 0 3rem;        
     }
 
     .arrow{
         width: 30px;
-        height: 110px;
+        height: 100px;
     }
 
     @include media(">tablet") {  //For Desktop 
@@ -231,6 +231,12 @@ body{
             // margin-top: 1rem;
             margin-bottom: 6rem;
         }
+    }
+
+    @include media(">425px","<=tablet") { //for Tablet
+        background: url(../images/desktop/image-header.jpg)  no-repeat center top/cover;
+
+        
     }
 
     
@@ -261,6 +267,7 @@ body{
     //  egg image
     img{
         width: 100%;
+        height: 100%;
     }
        
     // Intro
@@ -342,6 +349,12 @@ body{
 
                 button{
                     width: 25%;
+
+                    @include media(">tablet","<1400px") {  //For Desktop 
+                        width: 50%;
+                      }
+
+
                 }
     
                 .btn1{
@@ -411,6 +424,10 @@ body{
         @include media(">tablet") {  //For Desktop 
             background: url(../images/desktop/image-graphic-design.jpg) no-repeat top center/cover;
         }
+
+        @include media(">425px","<=tablet") {  //For Tablet
+            background: url(../images/desktop/image-graphic-design.jpg) no-repeat center top/cover;
+        }
     }
 
     .topic2{
@@ -418,6 +435,10 @@ body{
         
         @include media(">tablet") {  //For Desktop 
             background: url(../images/desktop/image-photography.jpg) no-repeat top center/cover;
+        }
+
+        @include media(">425px","<=tablet") {  //For Tablet 
+            background: url(../images/desktop/image-photography.jpg) no-repeat center top/cover;
         }
     }
 
@@ -431,7 +452,7 @@ body{
 // Testimonials
 
 .testimonials{
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -464,7 +485,7 @@ body{
                 text-align: center;
                 font-family: 'Barlow', sans-serif;
                 font-size: 17px;
-                color: var(--Darkdesaturatedcyan);
+                color: var(--Verydarkgrayishblue);
                 margin-top: 1.5rem;
                 line-height: 1.5;
                 margin-bottom: 2rem;
